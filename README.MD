@@ -9,8 +9,9 @@ The program will ask the user what `level of depth` they would like to see their
 
 <ol>
         <li>Basic - The first level will be the basic level that <strong> most</strong> users will be using </li>
-        <li>Intermediate - This level will be a more advanced version of basic adding features like</li>
-        <li>Expert - The most in-depth mode the user can access giving a full informative breakdown of the inputted text
+          <li> <del>Intermediate - This level will be a more advanced version of basic adding features like</del> </li>
+        <li> <del>Expert - The most in-depth mode the user can access giving a full informative breakdown of the
+                inputted text</del>
         </li>
 </ol>
 
