@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -27,31 +28,84 @@ public class TextStats {
     }
 
     public static void basic(String text) {
-        int charAmount = charCount(text);
-        int wordAmount = wordAmount(text);
-        int AveWordLen = AverageWordLength(text);
-        String Longest = LongestWord(text);
-        String Shortest = ShortestWord(text);
+        String[] sArray = text.split(" ");
+        char[] cArray = text.toCharArray();
+
+        System.out.println(Arrays.toString(sArray));
+        System.out.println(Arrays.toString(cArray));
+        int charAmount = charCount(cArray);
+        System.out.println("Text has "+charAmount+" characters in it");
+        int wordAmount = wordAmount(sArray);
+        System.out.println("Text has "+wordAmount+" words in it");
+        int AveWordLen = AverageWordLength(cArray, wordAmount);
+        System.out.println("Text has an average of "+AveWordLen+" letters in it");
+        int LongestLen = LongestWord(sArray);
+        System.out.println("The longest word is "+LongestLen+" long");
+        int Shortest = ShortestWord(sArray);
+        System.out.println("The shortest word is "+Shortest+" long");
+
+        
+      
     }
 
-    public static int charCount(String in) {
-        return 0;
+    public static int charCount(char[] in) {
+        return in.length;
     }
 
-    public static int wordAmount(String in) {
-        return 0;
+    public static int wordAmount(String[] in) {
+        return in.length;
     }
 
-    public static int AverageWordLength(String in) {
-        return 0;
+    public static int AverageWordLength(char[] in, int wordsAmount) {
+        int total = 0;
+        for (int i = 0; i < in.length; i++) {
+            if (in[i] == ' ') {
+                i++;
+            } else {
+                total++;
+            }
+        }
+        return total / wordsAmount;
     }
 
-    public static String LongestWord(String in) {
-        return "";
+    public static int LongestWord(String[] in) {
+        int highestLen = 0;
+        int countCurrent = 0;
+        String longWord = "";
+
+        for (int i = 0; i < in.length; i++) {
+            countCurrent = in[i].length();
+
+            if (countCurrent > highestLen) {
+                highestLen = countCurrent;
+                longWord = in[i];
+            } else {
+                continue;
+            }
+        }
+
+        System.out.println("The longest word is " + longWord);
+        return highestLen;
     }
 
-    public static String ShortestWord(String in) {
-        return "";
+    public static int ShortestWord(String[] in) {
+        int LowestLen = 100;
+        int countCurrent = 0;
+        String ShortWord = "";
+
+        for (int i = 0; i < in.length; i++) {
+            countCurrent = in[i].length();
+
+            if (countCurrent < LowestLen&&in[i]!=" ") {
+                LowestLen = countCurrent;
+                ShortWord = in[i];
+            } else {
+                continue;
+            }
+        }
+
+        System.out.println("The shortest word is " + ShortWord);
+        return LowestLen;
     }
 
     public static void interm(String text) {
